@@ -5,9 +5,10 @@ export const siteConfig = {
 	description: 'This is the official website of Tom "JoKeR". Here you can find all the information about me, my projects, partners and my journey.',
 	lang: "en",
 	locale: "en_GB",
-	url: "https://jokerdev.xyz",
-	ogImg: "https://cdn.jokerdev.xyz/img/dev_f0q2rhbn.jpeg",
-	twitterImg: "https://cdn.jokerdev.xyz/img/dev_f0q2rhbn.jpeg",
+	url: "https://tomdev.xyz",
+	ogImg: "https://cdn.tomdev.xyz/img/dev_f0q2rhbn.jpeg",
+	twitterImg: "https://cdn.tomdev.xyz/img/dev_f0q2rhbn.jpeg",
+	logo: "https://cdn.tomdev.xyz/img/dev_ojch2mvy.png",
 	color: 3447003,
 	userRoles: [
 		{
@@ -152,8 +153,8 @@ export const siteConfig = {
 	embedConfig: {
 		title: "Tom \"JoKeR\"",
 		description: "This is the official website of Tom \"JoKeR\". Here you can find all the information about me, my projects, partners and my journey.",
-		thumbnail: "https://cdn.jokerdev.xyz/img/dev_f0q2rhbn.jpeg",
-		url: "https://jokerdev.xyz",
+		thumbnail: "https://cdn.tomdev.xyz/img/dev_f0q2rhbn.jpeg",
+		url: "https://tomdev.xyz",
 		color: 3447003,
 		fields: [
 			{
@@ -184,7 +185,7 @@ export const siteConfig = {
 		timestamp: new Date(),
 		footer: {
 			text: "Tom \"JoKeR\"",
-			icon_url: "https://cdn.jokerdev.xyz/img/dev_f0q2rhbn.jpeg",
+			icon_url: "https://cdn.tomdev.xyz/img/dev_f0q2rhbn.jpeg",
 		},
 	},
 	guildId: "325761816426971137",

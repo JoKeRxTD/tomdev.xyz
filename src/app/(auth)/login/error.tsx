@@ -63,10 +63,10 @@ export default function Error({
                   className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer"
                   color="primary"
                   onClick={() =>
-                    window.open("mailto:contact@jokerdev.xyz", "_blank")
+                    window.open("mailto:contact@tomdev.xyz", "_blank")
                   }
                 >
-                  contact@jokerdev.xyz
+                  contact@tomdev.xyz
                 </Code>
               </div>
             </CardBody>
@@ -74,7 +74,7 @@ export default function Error({
               <button
                 className="text-base border rounded-xl p-2 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
                 color="default"
-                onClick={reset}
+                onClick={() => reset()}
               >
                 Try Again
               </button>

@@ -97,7 +97,7 @@ const LanyardCard = () => {
                         <Image
                             src={`https://cdn.discordapp.com/avatars/${activity?.discord_user?.id}/${activity?.discord_user?.avatar}.gif`}
                             alt="Discord Avatar"
-                            fallbackSrc="https://cdn.jokerdev.xyz/img/dev_emsam8ty.jpg"
+                            fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
                             className="rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
                             height={45}
                             width={50}
@@ -142,21 +142,21 @@ const LanyardCard = () => {
                                             <Image
                                                 src={`https://cdn.discordapp.com/emojis/${CustomStatus[0]?.emoji?.id}.png`}
                                                 alt="Discord Avatar"
-                                                fallbackSrc="https://cdn.jokerdev.xyz/img/dev_emsam8ty.jpg"
+                                                fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
                                                 className="rounded-full w-8 h-8 mr-2"
                                             />
                                         ) : CallOfDuty?.length > 0 ? (
                                             <Image
                                                 src={`https://cdn.discordapp.com/app-assets/${CallOfDuty[0]?.application_id}/${CallOfDuty[0]?.assets?.large_image}.png`}
                                                 alt="Discord Avatar"
-                                                fallbackSrc="https://cdn.jokerdev.xyz/img/dev_emsam8ty.jpg"
+                                                fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
                                                 className=" rounded-lg w-12 h-12 mr-6 ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
                                             />
                                         ) : (
                                             <Image
                                                 src={`https://media.discordapp.net/external/${notSpotify[0]?.assets?.large_image.replace("mp:external/", "")}`}
                                                 alt="Discord Avatar"
-                                                fallbackSrc="https://cdn.jokerdev.xyz/img/dev_emsam8ty.jpg"
+                                                fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
                                                 className="rounded-lg w-12 h-12 ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
                                             />
                                         )}

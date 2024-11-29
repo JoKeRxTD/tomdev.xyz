@@ -28,11 +28,11 @@ const Projects: Project[] = [
         links: [
             {
                 title: "Github",
-                link: "https://github.com/JoKeRxTD/jokerdev.xyz",
+                link: "https://github.com/JoKeRxTD/tomdev.xyz",
             },
             {
                 title: "Website",
-                link: "https://jokerdev.xyz",
+                link: "https://tomdev.xyz",
             },
             {
                 title: "Discord",
@@ -48,7 +48,7 @@ const Projects: Project[] = [
         links: [
             {
                 title: "Store",
-                link: "https://store.jokerdev.xyz"
+                link: "https://jkdev.tebex.io"
             },
             {
                 title: "Discord",
@@ -84,7 +84,7 @@ const Projects: Project[] = [
             },
             {
                 title: "Preview",
-                link: "https://linktree.jokerdev.xyz"
+                link: "https://linktree.tomdev.xyz"
             },
             {
                 title: "Discord",

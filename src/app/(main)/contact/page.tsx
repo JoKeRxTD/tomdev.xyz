@@ -51,9 +51,9 @@ export default function Contact() {
 						borderColor="hover:border-red-800/50"
 					/>
 					<ContactLink
-						name="contact@jokerdev.xyz"
+						name="contact@tomdev.xyz"
 						icon={<FiMail className="w-5 h-5 text-white-400" />}
-						link="mailto:contact@jokerdev.xyz"
+						link="mailto:contact@tomdev.xyz"
 						borderColor="hover:border-white/50"
 					/>
 				</div>

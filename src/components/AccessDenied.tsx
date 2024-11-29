@@ -28,7 +28,7 @@ export default function AccessDenied() {
                                     {error.message}
                                 </div>
                             </p>
-                            If you think this is a mistake, please contact me at <Code size="sm" className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer" color="primary" onClick={() => window.open("mailto:contact@jokerdev.xyz", "_blank")} >contact@jokerdev.xyz</Code>
+                            If you think this is a mistake, please contact me at <Code size="sm" className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer" color="primary" onClick={() => window.open("mailto:contact@tomdev.xyz", "_blank")} >contact@tomdev.xyz</Code>
                         </div>
                     </CardBody>
                     <CardFooter className="flex flex-row items-center text-center justify-center gap-2">
