@@ -68,7 +68,7 @@ const Projects: Project[] = [
             },
             {
                 title: "Website",
-                link: "https://discord.gg/UnTTbM7ySS"
+                link: "https://mythbot.org"
             }
         ]
     },
@@ -93,14 +93,18 @@ const Projects: Project[] = [
         ]
     },
     {
-        title: "EqualizerRP",
-        description: "Equalizer roleplay is a FiveM roleplay server with a focus on community building and roleplay.",
-        image: "/eqrp_logo.png",
+        title: "Nodus Roleplay",
+        description: "Nodus Roleplay is a FiveM server that I am currently a developer for. Check Nodus Roleplay out for a great experience.",
+        image: "/nodus.png",
         tags: ["LUA", "HTML", "CSS", "Javascript"],
         links: [
             {
                 title: "Discord",
-                link: "https://discord.gg/UnTTbM7ySS"
+                link: "https://discord.gg/nodus"
+            },
+            {
+                title: "Information",
+                link: "https://nodus.gitbook.io/nodus"
             },
         ]
     },
