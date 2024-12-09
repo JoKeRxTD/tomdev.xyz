@@ -12,6 +12,7 @@ type Project = {
     title: string;
     description: string;
     image: string;
+    roles?: string[];
     tags: string[];
     links: {
         title: string;
@@ -24,6 +25,7 @@ const Projects: Project[] = [
         title: "My Website",
         description: "This is my website, it is made with NextUI, NextJS and TailwindCSS, This project is open source.",
         image: "/joker.jpg",
+        roles: ["Owner", "Developer"],
         tags: ["NextJS", "TailwindCSS", "NextUI"],
         links: [
             {
@@ -44,6 +46,7 @@ const Projects: Project[] = [
         title: "JK:Development",
         description: "JK:Development is a development service that privides services for FiveM, Discord and more.",
         image: "/jk_dev2.png",
+        roles: ["Owner", "Developer"],
         tags: ["LUA", "FiveM", "DiscordJS"],
         links: [
             {
@@ -60,6 +63,7 @@ const Projects: Project[] = [
         title: "Mythbot Radio",
         description: "Join 1,585,911 Users, Use MythBot Radio, With over 30+ Radio Stations From All Over The World..",
         image: "/mythbot.png",
+        roles: ["Owner", "Developer"],
         tags: ["DiscordJS", "NodeJS"],
         links: [
             {
@@ -76,6 +80,7 @@ const Projects: Project[] = [
         title: "JoKeR LinkTree",
         description: "This is my version of the popular website LinkTree, This project is open source.",
         image: "/joker3.png",
+        roles: ["Owner", "Developer"],
         tags: ["NextJS", "ShadCn", "Typescript"],
         links: [
             {
@@ -94,8 +99,9 @@ const Projects: Project[] = [
     },
     {
         title: "Nodus Roleplay",
-        description: "Nodus Roleplay is a FiveM server that I am currently a developer for. Check Nodus Roleplay out for a great experience.",
+        description: "Nodus Roleplay is a FiveM server built with Qbx Framework, Come join us today!",
         image: "/nodus.png",
+        roles: ["Sr. Developer"],
         tags: ["LUA", "HTML", "CSS", "Javascript"],
         links: [
             {
@@ -103,7 +109,7 @@ const Projects: Project[] = [
                 link: "https://discord.gg/nodus"
             },
             {
-                title: "Information",
+                title: "More Info",
                 link: "https://nodus.gitbook.io/nodus"
             },
         ]
@@ -147,6 +153,14 @@ export default function ProjectsCard() {
                             {project.tags.map((tag, index) => (
                                 <Badge key={index} variant="default" className="text-xs">
                                     {tag.toString()}
+                                </Badge>
+                            ))}
+                        </span>
+                        <span>
+                            Roles:{" "}
+                            {project.roles?.map((role, index) => (
+                                <Badge key={index} variant="default" className="text-xs">
+                                    {role.toString()}
                                 </Badge>
                             ))}
                         </span>
