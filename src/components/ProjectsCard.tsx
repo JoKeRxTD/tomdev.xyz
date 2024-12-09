@@ -156,7 +156,7 @@ export default function ProjectsCard() {
                                 </Badge>
                             ))}
                         </span>
-                        <span>
+                        <span className="text-xs gap-1 justify-around items-center flex flex-row">
                             Roles:{" "}
                             {project.roles?.map((role, index) => (
                                 <Badge key={index} variant="default" className="text-xs">
