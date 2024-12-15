@@ -61,7 +61,7 @@ const Projects: Project[] = [
     },
     {
         title: "Mythbot Radio",
-        description: "Join 1,585,911 Users, Use MythBot Radio, With over 30+ Radio Stations From All Over The World..",
+        description: "Join 1,585,911 Users, Use MythBot Radio, With over 30+ Radio Stations From All Over The World.",
         image: "/mythbot.png",
         roles: ["Owner", "Developer"],
         tags: ["DiscordJS", "NodeJS"],
@@ -127,6 +127,33 @@ export default function ProjectsCard() {
     if (error) {
         return <div>Error Fetching: {error}</div>
     }
+
+    const BadgeTags: { [key: string]: { variant: string } } = {
+        // add all const Projects: Project[] tags here
+        "NextJS": { variant: "NextJS" },
+        "TailwindCSS": { variant: "TailwindCSS" },
+        "NextUI": { variant: "NextUI" },
+        "LUA": { variant: "Lua" },
+        "FiveM": { variant: "FiveM" },
+        "DiscordJS": { variant: "DiscordJS" },
+        "NodeJS": { variant: "NodeJS" },
+        "Typescript": { variant: "Typescript" },
+        "ShadCn": { variant: "ShadCn" },
+        "HTML": { variant: "HTML" },
+        "CSS": { variant: "CSS" },
+        "Javascript": { variant: "Javascript" },
+        
+    };
+    
+    const TagBadge = ({ tags }: { tags: string }) => {
+        return (
+            <Badge variant={BadgeTags[tags]?.variant as any}>
+                {tags}
+            </Badge>
+        );
+    };
+
+
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 flex-wrap w-full gap-4 p-4 justify-center">
             {Projects.map((project) => (
@@ -150,10 +177,8 @@ export default function ProjectsCard() {
                         <span>{project.description}</span>
                         <span className="text-xs gap-1 justify-around items-center flex flex-row">
                             Tags:{" "}
-                            {project.tags.map((tag, index) => (
-                                <Badge key={index} variant="default" className="text-xs">
-                                    {tag.toString()}
-                                </Badge>
+                            {project.tags?.map((tag, index) => (
+                                <TagBadge key={index} tags={tag} />
                             ))}
                         </span>
                         <span className="text-xs gap-1 justify-around items-center flex flex-row">
