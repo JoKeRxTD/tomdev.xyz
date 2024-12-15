@@ -23,6 +23,14 @@ export default async function auth(req) {
         page: '/partners',
         country: req.geo?.country,
       })
+      await analytics.track('pageview', {
+        page: '/about',
+        country: req.geo?.country,
+      })
+      await analytics.track('pageview', {
+        page: '/guestbook',
+        country: req.geo?.country,
+      })
       console.log('Tracked pageview for /')
     } catch (err) {
       // fail silently to not affect request
