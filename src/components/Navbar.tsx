@@ -77,47 +77,47 @@ export default function Navbar() {
   if (userAvatar?.includes("a_")) userAvatar = `https://cdn.discordapp.com/avatars/${userData?.discordId}/${userAvatar}.gif?size=512` || `https://cdn.discordapp.com/avatars/${userData?.discordId}/${userAvatar}.png?size=512`;
 
 
-	// const UserBar = () => {
-	// 	// convert userDrown label to lowercase for icon matching
-	// 	const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
-	// 	if (session) {
-	// 		return (
-	// 			<div className="flex gap-2 items-center justify-center">
-	// 				<DropdownMenu>
-	// 					<DropdownMenuTrigger asChild>
-	// 						<Avatar>
-	// 							<AvatarImage className="rounded-full" src={`${userAvatar}`} />
-	// 							<AvatarFallback>{userData?.username}</AvatarFallback>
-	// 						</Avatar>
-	// 					</DropdownMenuTrigger>
-	// 					<DropdownMenuContent
-	// 						aria-label="User Options"
-	// 						className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
-	// 					>
-	// 						<DropdownMenuSeparator />
-	// 						{userDropdown.map((item, index) => (
-	// 							<DropdownMenuItem
-	// 								key={`${item.label}-${index}`}
-	// 								className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
-	// 								onClick={() => {
-	// 									window.location.href = item.href;
-	// 								}
-	// 								}>
-	// 								{/* icons | label */}
-	// 								{icons[userDropdownLabels[index]]}&nbsp;{item.label}
-	// 							</DropdownMenuItem>
-	// 						))}
-	// 						<DropdownMenuSeparator />
-	// 						<DropdownMenuItem className="items-center justify-center text-center">
-	// 							<SignOut />
-	// 						</DropdownMenuItem>
-	// 					</DropdownMenuContent>
-	// 				</DropdownMenu>
-	// 			</div>
-	// 		);
-	// 	}
-	// 	return <SignIn />;
-	// }
+	const UserBar = () => {
+		// convert userDrown label to lowercase for icon matching
+		const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
+		if (session) {
+			return (
+				<div className="flex gap-2 items-center justify-center">
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Avatar>
+								<AvatarImage className="rounded-full" src={`${userAvatar}`} />
+								<AvatarFallback>{userData?.username}</AvatarFallback>
+							</Avatar>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent
+							aria-label="User Options"
+							className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+						>
+							<DropdownMenuSeparator />
+							{userDropdown.map((item, index) => (
+								<DropdownMenuItem
+									key={`${item.label}-${index}`}
+									className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
+									onClick={() => {
+										window.location.href = item.href;
+									}
+									}>
+									{/* icons | label */}
+									{icons[userDropdownLabels[index]]}&nbsp;{item.label}
+								</DropdownMenuItem>
+							))}
+							<DropdownMenuSeparator />
+							<DropdownMenuItem className="items-center justify-center text-center">
+								<SignOut />
+							</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
+				</div>
+			);
+		}
+		return <SignIn />;
+	}
 	
 
 
@@ -186,7 +186,7 @@ export default function Navbar() {
 						{icons.github}
 					</Link>
 					<ThemeSwitch />
-					<SignIn />
+					<UserBar />
 				</NavbarItem>
 			</NavbarContent>
 
@@ -200,7 +200,7 @@ export default function Navbar() {
 				</Link>
 				<ThemeSwitch />
 				<NavbarMenuToggle />
-				<SignIn />
+				<UserBar />
 			</NavbarContent>
 
 			<NavbarMenu>
