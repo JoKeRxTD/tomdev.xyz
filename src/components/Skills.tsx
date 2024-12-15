@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Code } from "@nextui-org/react";
 import { classNames } from "@/src/utils/classNames";
 import { SiTypescript, SiHtml5, SiCss3, SiJavascript, SiNodedotjs, SiReact, SiTailwindcss, SiLua, SiDiscord, SiD3Dotjs } from "react-icons/si";
+import { Badge } from "./ui/badge";
 
 interface TagProps {
   label: string;
@@ -44,15 +45,13 @@ export default function Skills() {
             color={tag.color as any}
             className={classNames('z-11 rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400')}
           >
-            <Button
+            <Badge
               key={index}
-              variant="zinc"
-              size="lg"
-              rounded="md"
-              className={classNames("m-1 flex-wrap-reverse justify-center items-center animate-slide text-lg")}
+              variant="default"
+              className={classNames("m-2 flex-wrap-reverse justify-center items-center animate-slide text-2xl rounded-md")}
             >
                 {tag.icon ? tag.icon : tag.label}
-            </Button>
+            </Badge>
           </Tooltip>
         ))}
       </div>
