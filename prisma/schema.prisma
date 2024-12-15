@@ -10,73 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id             String    @id @default(cuid())
-  discordId      String    @unique
-  global_name    String
-  name           String
-  username       String    @unique
-  avatar         String
-  image          String
-  role           String?
-  email          String    @unique
-  email_verified Boolean
-  flags          Int
-  premium_type   Int
-  public_flags   Int
-  banner         String
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  // posts          Post[]
-  apiKeys        APIKeys[]
-  accounts       Account[]
-  sessions       Session[]
-  verificationTokens VerificationToken[]
-}
-
-model Account {
-  id                String  @id @default(cuid())
-  discordId         String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  user User @relation(fields: [discordId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  discordId    String
-  expires      DateTime
-  user         User     @relation(fields: [discordId], references: [id], onDelete: Cascade)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model VerificationToken {
-  identifier String
-  token      String
-  expires    DateTime
-  discordId  String
-  user       User     @relation(fields: [discordId], references: [id], onDelete: Cascade)
-
-  @@id([identifier, token])
-}
-
 model Post {
   id        String   @id @default(cuid())
   title     String
@@ -85,14 +18,4 @@ model Post {
   updatedAt DateTime @updatedAt
   username  String
   discordId String   @unique
-}
-
-model APIKeys {
-  id        String   @id @default(cuid())
-  key       String   @unique
-  username  User     @relation(fields: [discordId], references: [id])
-  discordId String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  usageInt  Int      @default(0)
 }
