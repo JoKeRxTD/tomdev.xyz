@@ -72,7 +72,7 @@ function GithubAPI() {
     "TypeScript": { name: "Typescript"},
     "Python": { name: "Python"},
     "Lua": { name: "Lua"},
-    "JavaScript": { name: "Javascript"},
+    "JavaScript": { name: "javascript"},
     "HTML": { name: "HTML"},
     "CSS": { name: "CSS"},
     "Md": { name: "Markdown"},
