@@ -1,26 +1,35 @@
 import { analytics } from '@/src/actions/analytics';
-export { auth as middleware } from '@/src/lib/auth';
+// import { auth } from '@/src/lib/auth';
+export { auth } from '@/src/lib/auth';
+import { NextRequest, NextResponse } from 'next/server'
 
 
-export function auth(req, res) {
-
-  if (!req.auth && req.nextUrl.pathname !== "/") {
+export default async function auth(req) {
+  if (req.nextUrl.pathname === '/') {
     try {
-      analytics.track('pageview', {
+      await analytics.track('pageview', {
         page: '/',
         country: req.geo?.country,
       })
-      console.log('pageview tracked');
+      console.log('Tracked pageview for /')
     } catch (err) {
       // fail silently to not affect request
       console.error(err)
     }
   }
-
-  return res.next();
+    return NextResponse.next()
 }
 
-
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next).*)', '/', '/(api|trpc)(.*)'],
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    '/',      
+  ],
 }
