@@ -2,13 +2,13 @@
 
 This is my Porfoilio website built with Next.js and NextUI. It is a template that you can use to build your own website.
 This was created from the template provided by [nextui-org](https://github.com/nextui-org/next-app-template).
-You can preview the website [PREVIEW](https://jokerdev.xyz).
+You can preview the website [PREVIEW](https://tomdev.xyz).
 
 # Build
 [![Netlify Status](https://api.netlify.com/api/v1/badges/851db577-e644-4c91-9fb2-3a1cb0b926f6/deploy-status)](https://app.netlify.com/sites/funny-bombolone-136075/deploys)
 
 # Star
-<img style='border-radius: 10px;' src="https://cdn.jokerdev.xyz/img/dev_bo4h5gr1.png" alt="star" />
+<img style='border-radius: 10px;' src="https://cdn.tomdev.xyz/img/dev_bo4h5gr1.png" alt="star" />
 
 ## Technologies Used
 
@@ -67,4 +67,4 @@ yarn build
 
 ## License
 
-You can use this at your own free will & edit how every you like for your own personal use, All I ask is that I am credited for the template. You can do this by linking back to my website, [jokerdev.xyz](https://jokerdev.xyz).
+You can use this at your own free will & edit how every you like for your own personal use, All I ask is that I am credited for the template. You can do this by linking back to my website, [tomdev.xyz](https://tomdev.xyz).
