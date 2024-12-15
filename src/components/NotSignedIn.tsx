@@ -29,8 +29,8 @@ export default function NotSignedIn() {
                             <span className="text-center font-bold">
                                 If you think this is a mistake, please contact me at
                             </span>
-                            <span className="cursor-pointer ring-1 ring-inset bg-blue-900/75 text-blue-400 ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25 p-2 rounded-md" onClick={() => window.open("mailto:contact@jokerdev.xyz", "_blank")} >
-                                contact@jokerdev.xyz
+                            <span className="cursor-pointer ring-1 ring-inset bg-blue-900/75 text-blue-400 ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25 p-2 rounded-md" onClick={() => window.open("mailto:contact@tomdev.xyz", "_blank")} >
+                                contact@tomdev.xyz
                             </span>
                         </div>
                     </CardBody>
@@ -51,4 +51,4 @@ export default function NotSignedIn() {
     );
 }
 
-// href="mailto:contact@jokerdev.xyz"
+// href="mailto:contact@tomdev.xyz"
