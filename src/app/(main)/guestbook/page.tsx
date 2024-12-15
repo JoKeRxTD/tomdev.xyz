@@ -1,13 +1,25 @@
 import AccessDenied from '@/src/components/AccessDenied'
 import NotSignedIn from "@/src/components/NotSignedIn";
 import SignGuestBook from '@/src/components/SignGuestBook'
-import GuestBookCard from '@/src/components/GuestBook'
-import PostsList from "@/src/components/GuestBook";
+import PostsList from '@/src/components/GuestBook'
 import { Suspense } from "react";
 import {Skeleton} from "@nextui-org/skeleton";
 import { Divider } from "@nextui-org/react";
+import { auth } from '@/src/lib/auth';
+// import { GuestBook } from '@/src/actions/guestPost';
+import { siteConfig } from '@/config/site';
 
 export default async function GuestBookPage() {
+  // const session = await auth();
+  // if (!session) {
+  //   return <NotSignedIn />;
+  // }
+  // const isAdmin = session?.user?.role === `${siteConfig.userRoles}`
+  // if (!isAdmin) {
+  //   return <AccessDenied />;
+  // }
+
+ 
   
   return (
     <div className="w-full p-4 flex flex-col gap-4">
@@ -25,11 +37,11 @@ export default async function GuestBookPage() {
         <Suspense fallback={
           <>
             <Skeleton className='w-[100%] h-16' />
-            <PostsList />
+            <PostsList/>
             <Skeleton className='w-[100%] h-16' />
           </>
         }>
-          <PostsList />
+          <PostsList/>
         </Suspense>
       </div>
       <Divider />
