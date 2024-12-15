@@ -77,53 +77,53 @@ export default function Navbar() {
   if (userAvatar?.includes("a_")) userAvatar = `https://cdn.discordapp.com/avatars/${userData?.discordId}/${userAvatar}.gif?size=512` || `https://cdn.discordapp.com/avatars/${userData?.discordId}/${userAvatar}.png?size=512`;
 
 
-	const UserBar = () => {
-		// convert userDrown label to lowercase for icon matching
-		const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
-		if (session) {
-			return (
-				<div className="flex gap-2 items-center justify-center">
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Avatar>
-								<AvatarImage src={`${userAvatar}`} />
-								<AvatarFallback>{userData?.username}</AvatarFallback>
-							</Avatar>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent
-							aria-label="User Options"
-							className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
-						>
-							<DropdownMenuSeparator />
-							{userDropdown.map((item, index) => (
-								<DropdownMenuItem
-									key={`${item.label}-${index}`}
-									className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
-									onClick={() => {
-										window.location.href = item.href;
-									}
-									}>
-									{/* icons | label */}
-									{icons[userDropdownLabels[index]]}&nbsp;{item.label}
-								</DropdownMenuItem>
-							))}
-							<DropdownMenuSeparator />
-							<DropdownMenuItem className="items-center justify-center text-center">
-								<SignOut />
-							</DropdownMenuItem>
-						</DropdownMenuContent>
-					</DropdownMenu>
-				</div>
-			);
-		}
-		return <SignIn />;
-	}
+	// const UserBar = () => {
+	// 	// convert userDrown label to lowercase for icon matching
+	// 	const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
+	// 	if (session) {
+	// 		return (
+	// 			<div className="flex gap-2 items-center justify-center">
+	// 				<DropdownMenu>
+	// 					<DropdownMenuTrigger asChild>
+	// 						<Avatar>
+	// 							<AvatarImage className="rounded-full" src={`${userAvatar}`} />
+	// 							<AvatarFallback>{userData?.username}</AvatarFallback>
+	// 						</Avatar>
+	// 					</DropdownMenuTrigger>
+	// 					<DropdownMenuContent
+	// 						aria-label="User Options"
+	// 						className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+	// 					>
+	// 						<DropdownMenuSeparator />
+	// 						{userDropdown.map((item, index) => (
+	// 							<DropdownMenuItem
+	// 								key={`${item.label}-${index}`}
+	// 								className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
+	// 								onClick={() => {
+	// 									window.location.href = item.href;
+	// 								}
+	// 								}>
+	// 								{/* icons | label */}
+	// 								{icons[userDropdownLabels[index]]}&nbsp;{item.label}
+	// 							</DropdownMenuItem>
+	// 						))}
+	// 						<DropdownMenuSeparator />
+	// 						<DropdownMenuItem className="items-center justify-center text-center">
+	// 							<SignOut />
+	// 						</DropdownMenuItem>
+	// 					</DropdownMenuContent>
+	// 				</DropdownMenu>
+	// 			</div>
+	// 		);
+	// 	}
+	// 	return <SignIn />;
+	// }
 	
 
 
 	const navDropdownLabels = navDropdown.map((item) => item.label.toLowerCase());
 	return (
-		<NextUINavbar maxWidth="xl" position="sticky" className="z-50 gap-2 ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400">
+		<NextUINavbar maxWidth="lg" position="sticky" className="z-50 gap-2 border-t border-zinc-800 dark:border-zinc-800/30 text-zinc-200 dark:text-zinc-800 bg-transparent dark:bg-zinc-900/25">
 			<NavbarContent className="basis-1/5 sm:basis-full ml-2 gap-4 justify-center items-center text-bold text-base">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<Link className="flex justify-start items-center gap-1" href="/">
@@ -186,11 +186,11 @@ export default function Navbar() {
 						{icons.github}
 					</Link>
 					<ThemeSwitch />
-					<UserBar />
+					<SignIn />
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="sm:hidden basis-1 pl-4 justify-center" justify="end">
+			<NavbarContent className="sm:hidden basis-2 pl-2 justify-center" justify="end">
 				<Skeleton className="hidden sm:flex" isLoaded={false} />
 				<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 					{icons.discord}
@@ -200,7 +200,7 @@ export default function Navbar() {
 				</Link>
 				<ThemeSwitch />
 				<NavbarMenuToggle />
-				<UserBar />
+				<SignIn />
 			</NavbarContent>
 
 			<NavbarMenu>
