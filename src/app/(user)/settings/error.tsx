@@ -63,10 +63,10 @@ export default function Error({
                   className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer"
                   color="primary"
                   onClick={() =>
-                    window.open("mailto:contact@jokerdev.xyz", "_blank")
+                    window.open("mailto:contact@tomdev.xyz", "_blank")
                   }
                 >
-                  contact@jokerdev.xyz
+                  contact@tomdev.xyz
                 </Code>
               </div>
             </CardBody>

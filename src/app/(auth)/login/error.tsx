@@ -34,9 +34,9 @@ export default function Error({
           <Card className="text-center justify-center items-center flex flex-col border rounded-xl border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
             <CardHeader className="flex flex-col text-center justify-center items-center text-2xl text-primary-300 font-bold">
               <div className="text-center pb-2">
-                <p className="text-5xl font-extrabold text-center items-center justify-center text-blue-500 dark:text-blue-800">
+                <a className="text-5xl font-extrabold text-center items-center justify-center text-blue-500 dark:text-blue-800">
                   Error
-                </p>
+                </a>
               </div>
               <Code
                 size="lg"
@@ -48,7 +48,7 @@ export default function Error({
             </CardHeader>
             <CardBody className="flex flex-wrap items-center text-center space-y-2 pb-1 justify-between">
               <div className="text-center pb-2">
-                <p className="text-center pb-2">
+                <a className="text-center pb-2">
                   <Code
                     color="danger"
                     size="sm"
@@ -56,7 +56,7 @@ export default function Error({
                   >
                     {error.message}
                   </Code>
-                </p>
+                </a>
                 If you think this is a mistake, please contact me at{" "}
                 <Code
                   size="sm"

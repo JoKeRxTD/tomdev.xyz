@@ -17,9 +17,9 @@ export default function Error({
     console.error(error);
   }, [error]);
 
-  // if error 45 characters long, slice the error message 
-  if (error.message.length > 100) {
-    error.message = error.message.slice(0, 100) + "...";
+  // if error 45 characters long insert new line
+  if (error.message.length > 45) {
+    error.message = error.message.slice(0, 150) + "...";
   }
 
   return (
@@ -31,7 +31,7 @@ export default function Error({
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="w-full h-full"
       >
-          <Card className="sm:w-[60vh] lg:w-[65vh] sm:h-[35vh] lg:h-[30vh] text-center justify-center items-center flex flex-col border rounded-xl border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
+          <Card className=" text-center justify-center items-center flex flex-col border rounded-xl border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
             <CardHeader className="flex flex-col text-center justify-center items-center text-2xl text-primary-300 font-bold">
               <div className="text-center pb-2">
                 <p className="text-5xl font-extrabold text-center items-center justify-center text-blue-500 dark:text-blue-800">
@@ -54,7 +54,7 @@ export default function Error({
                     size="sm"
                     className="text-center font-bold text-zinc-800 dark:text-pink-600"
                   >
-                    {error.message || error.name}
+                    
                   </Code>
                 </p>
                 If you think this is a mistake, please contact me at{" "}
@@ -63,10 +63,10 @@ export default function Error({
                   className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer"
                   color="primary"
                   onClick={() =>
-                    window.open("mailto:contact@jokerdev.xyz", "_blank")
+                    window.open("mailto:contact@tomdev.xyz", "_blank")
                   }
                 >
-                  contact@jokerdev.xyz
+                  contact@tomdev.xyz
                 </Code>
               </div>
             </CardBody>
