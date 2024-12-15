@@ -1,94 +1,134 @@
 "use server";
-import { RedisClient } from '@/src/lib/redis'
-import { getDate } from '@/src/utils'
-import { parse } from 'date-fns'
-
+import prisma from "../lib/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const redis = RedisClient();
-
-// ! Redis command examples below
-// // string
-// await redis.set('key', 'value');
-// let data = await redis.get('key');
-// console.log(data)
-
-// await redis.set('key2', 'value2', {ex: 1});
-
-// // sorted set
-// await redis.zadd('scores', { score: 1, member: 'team1' })
-// data = await redis.zrange('scores', 0, 100 )
-// console.log(data)
-
-// // list
-// await redis.lpush('elements', 'magnesium')
-// data = await redis.lrange('elements', 0, 100 )
-// console.log(data)
-
-// // hash
-// await redis.hset('people', {name: 'joe'})
-// data = await redis.hget('people', 'name' )
-// console.log(data)
-
-// // sets
-// await redis.sadd('animals', 'cat')
-// data  = await redis.spop('animals', 1)
-// console.log(data)
-// ! End Of Redis command examples
-
-export async function createPost(post: any) {
-    const id = Math.random().toString(36).substr(2, 9)
-    const key = `post::${id}`
-    await redis.hmset(key, post)
-    return id
-}
-
-export async function deletePost(id: number) {
-    return redis.del(`post::${id}`)
-}
 
 export async function findPostByUser(username: string) {
-    const keys = await redis.keys('post::*')
-    const posts = await redis.mget(keys)
-    return posts.filter((post: any) => post.username === username)
+
+    // find post
+    const checkUser = await prisma.post.findMany({
+        where: {
+            username: username
+        }
+    });
+
+    return checkUser;
 }
 
-export async function getPostById(id: number) {
-    return redis.hgetall(`post::${id}`)
+//find all posts in the database
+export async function getallPosts() {
+    const posts = await prisma.post.findMany();
+    return posts;
 }
 
-export async function getAllPosts() {
-    const keys = await redis.keys('post::*')
-    if (!keys.length) return []
+export async function deletePost(id: string) {
+
+    await prisma.post.delete({
+        where: {
+            id: id
+        },
+    });
+    redirect("/guestbook");
+}
+
+//create post
+export async function createPost(formData: FormData) {
     try {
-        return await redis.mget(keys)
+    
+    // get form data
+    const title = formData.get("title") as string;
+    const body = formData.get("body") as string;
+    const username = (formData.get("username") as string) ?? "";
+    const discordId = (formData.get("discordId") as string) ?? "";
+
+    // update database
+    await prisma.post.create({
+        data: {
+            title,
+            body,
+            username,
+            discordId,
+        },
+    });
+        // revalidate
+        revalidatePath("/guestbook");
     } catch (error) {
-        console.error(error)
+        console.error(error);
     }
 }
 
-export async function updatePost(id: number, post: any) {
-    return redis.hmset(`post::${id}`, post)
+export async function CheckUser(user: string) {
+    const checkUser = await findPostByUser(user);
+    if (checkUser.length > 0) {
+        return true;
+    }
 }
 
-export async function getPostBySlug(slug: string) {
-    const keys = await redis.keys('post::*')
-    const posts = await redis.mget(keys)
-    return posts.find((post: any) => post.slug === slug)
+export async function CheckUserById(discordId: string) {
+    try {
+        const checkUser = await prisma.post.findMany({
+            where: {
+                discordId: discordId
+            }
+        });
+        if (checkUser.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-export async function getPostByUserId(userId: string) {
-    const keys = await redis.keys('post::*')
-    const posts = await redis.mget(keys)
-    return posts.filter((post: any) => post.userId === userId)
+export async function updatePost(id: number, formData: FormData) {
+    const title = formData.get("title") as string;
+    const body = formData.get("body") as string;
+    await prisma.post.update({
+        where: {
+            id: id.toString()
+        },
+        data: {
+            title,
+            body
+        }
+    });
+    revalidatePath("/guestbook");
 }
 
-export async function checkUserAlreadyPosted(userId: string) {
-    const keys = await redis.keys('post::*')
-    const posts = await redis.mget(keys)
-    return posts.some((post: any) => post.userId === userId)
+export async function findPostByDiscordId(discordId: string) {
+    const post = await prisma.post.findMany({
+        where: {
+            discordId: discordId
+        }
+    });
+    return post;
 }
 
+export async function getPostByUserId(discordId: string) {
+    try {
+        const post = await prisma.post.findMany({
+            where: {
+                discordId: discordId
+            }
+        });
+        if (post.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
 
+// export async function getPostBySlug(slug: string) {
+//     const post = await prisma.post.findMany({
+//         where: {
+//             slug: slug
+//         }
+//     });
+//     return post;
+// }
 
