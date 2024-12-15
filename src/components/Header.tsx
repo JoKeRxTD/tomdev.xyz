@@ -19,7 +19,7 @@ export default function Header() {
             className={`relative flex w-full flex-col items-center justify-center gap-4 overflow-hidden h-full lg:h-[700px]`}
             style={{ transition: "opacity 0.5s ease-in-out" }}
         >
-            <BackgroundBeams />
+            {/* <BackgroundBeams /> */}
             <div className="mt-6 text-center text-4xl font-bold text-gray-800 dark:text-gray-100 lg:mt-0">
                 Hello, I`m&nbsp;
                 {text.split("").map((letter, index) => (

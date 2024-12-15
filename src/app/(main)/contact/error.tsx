@@ -46,30 +46,26 @@ export default function Error({
                 500 Internal Server Error
               </Code>
             </CardHeader>
-            <CardBody className="flex flex-wrap items-center text-center space-y-2 pb-1 justify-between">
-              <div className="text-center pb-2">
-                <a className="text-center pb-2">
-                  <Code
-                    color="danger"
-                    size="sm"
-                    className="text-center font-bold text-zinc-800 dark:text-pink-600"
-                  >
-                    
-                  </Code>
-                </a>
-                If you think this is a mistake, please contact me at{" "}
-                <Code
-                  size="sm"
-                  className="text-zinc-800 dark:text-blue-600 font-bold cursor-pointer"
-                  color="primary"
+            <CardBody className="flex flex-wrap items-center justify-between space-y-3 pb-1 text-center">
+            <div className="pb-2 text-center">
+              <p className="pb-2 text-center">
+                <div className="rounded-md bg-red-900/25 p-2 text-center text-lg font-bold text-red-800 ring-1 ring-inset ring-red-400/25 dark:bg-red-900/25 dark:text-red-400 dark:ring-red-400/25">
+                  {error.message}
+                </div>
+              </p>
+              <p className="p-4 text-center">
+                If you think this is a mistake, please contact me{" "}
+                <a
+                  className="cursor-pointer rounded-md bg-blue-900/25 p-1 text-center font-bold text-blue-800 ring-1 ring-inset ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25"
                   onClick={() =>
                     window.open("mailto:contact@tomdev.xyz", "_blank")
                   }
                 >
                   contact@tomdev.xyz
-                </Code>
-              </div>
-            </CardBody>
+                </a>
+              </p>
+            </div>
+          </CardBody>
             <CardFooter className="flex flex-row items-center text-center justify-center gap-2">
               <button
                 className="text-base border rounded-xl p-2 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
