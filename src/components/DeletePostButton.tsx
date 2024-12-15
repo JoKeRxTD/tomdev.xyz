@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { experimental_useFormStatus as useFormStatus } from "react-dom";
 import { useRouter } from "next/navigation";
-import { deletePost, findPostByUser } from "@/src/actions/guestPost";
+import { deletePost, findPostByDiscordId } from "@/src/actions/guestPost";
 import { cn } from "@/src/utils/cn";
 import { useRef } from "react";
 import { useToast } from "@/src/components/ui/use-toast"
@@ -14,32 +13,26 @@ import * as React from "react";
 import { useSession } from "next-auth/react"
 import { SignIn, SignOut } from "@/src/components/SignInOut"
 
-export default function DeletePostButton({ id, className }: { id: string, className: string }) {
+export default function DeletePostButton({ id }: { id: string}) {
     const { data: session } = useSession()
     const { toast } = useToast()
     const [isPending, setIsPending] = useState(false);
-    const router = useRouter();
 
     if (!session) {
         return null;
     }
 
-    async function checkUser(username: string) {
-        const checkUser = await findPostByUser(username);
-        if (checkUser.length > 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
     async function onSubmit() {
         setIsPending(true);
-        const username = session?.user?.username!;
-        const checkUsers = await checkUser(username || '');
-        if (checkUsers) {
+        const discordId = session?.user.discordId || '';
+        if (!discordId) {
+            console.log('No discordId found');
+            return;
+        }
+        const isPostOwner = await findPostByDiscordId(discordId);
+        if (isPostOwner) {
             try {
-                await deletePost(parseInt(id));
+                await deletePost(id as string);
                 toast({
                     title: 'Success',
                     description: 'Post deleted successfully',
