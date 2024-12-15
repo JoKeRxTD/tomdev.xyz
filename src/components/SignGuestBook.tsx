@@ -1,6 +1,6 @@
 
 'use client'
-import { findPostByUser, createPost } from "../actions/guestPost";
+import { createPost, getPostByUserId, CheckUserById } from '@/src/actions/guestPost';
 import React from "react";
 import { Divider } from "@nextui-org/react";
 import { useState } from 'react';
@@ -15,6 +15,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/src/components/ui/accordion"
+import discord from "next-auth/providers/discord";
 
 
 export default function SignGuestBook() {
@@ -36,22 +37,21 @@ export default function SignGuestBook() {
     }
 
     const user = session?.user;
-    const profile = session?.profile;
-    const username = user?.username;
-    const discordId = profile?.id;
-    // if (!username) {
-    //     return "Invalid username";
-    // }
-    // if (!discordId) {
-    //     return "Invalid discordId";
-    // }
+    const username = user.username;
+    const discordId = user.discordId;
+    if (!username) {
+        return "Invalid username";
+    }
+    if (!discordId) {
+        return "Invalid discordId";
+    }
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
         const form = e.target as HTMLFormElement;
         const formData = new FormData(form);
         setSending(true);
-        const checkUser = await CheckUser(session?.user?.username!);
+        const checkUser = await getPostByUserId(discordId);
         if (checkUser) {
             setError("You have already signed the guestbook.");
             setSending(false);
@@ -66,16 +66,6 @@ export default function SignGuestBook() {
             setError("An error occurred, please try again.");
         }
         setSending(false);
-    }
-
-
-    async function CheckUser(user: string) {
-        const checkUser = await findPostByUser(user);
-        if (checkUser.length > 0) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     return (
