@@ -34,6 +34,14 @@ const buttonVariants = cva(
         JokerBlueButton: "bg-blue-900/25 text-blue-800 ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25 hover:bg-blue-900/50 hover:text-blue-400 hover:ring-blue-400/50 dark:hover:bg-blue-900/50 dark:hover:text-blue-400 dark:hover:ring-blue-400/50",
         // discord button with the same style as PostBackButton but using the color "#5865F2"
         Discord: "bg-[#5865F2]/25 text-[#5865F2] ring-[#5865F2]/25 dark:bg-[#5865F2]/25 dark:text-[#5865F2] dark:ring-[#5865F2]/25 hover:bg-[#5865F2]/50 hover:text-[#5865F2] hover:ring-[#5865F2]/50 dark:hover:bg-[#5865F2]/50 dark:hover:text-[#5865F2] dark:hover:ring-[#5865F2]/50",
+        // "Hosting",  "ESX", "QBCore", "Servers", "Domains", "VPS", "ReactJS"
+        Hosting: "bg-amber-700/25 text-amber-700 ring-amber-700/25 dark:bg-amber-700/25 dark:text-amber-700 dark:ring-amber-700/25 hover:bg-amber-900/50 hover:text-amber-400 hover:ring-amber-400/50 dark:hover:bg-amber-900/50 dark:hover:text-amber-400 dark:hover:ring-amber-400/50",
+        ESX: "bg-yellow-700/25 text-yellow-700 ring-yellow-700/25 dark:bg-yellow-700/25 dark:text-yellow-700 dark:ring-yellow-700/25 hover:bg-yellow-500/50 hover:text-yellow-500 hover:ring-yellow-500/50 dark:hover:bg-yellow-500/50 dark:hover:text-yellow-500 dark:hover:ring-yellow-500/50",
+        QBCore: "bg-red-700/25 text-red-700 ring-red-700/25 dark:bg-red-700/25 dark:text-red-700 dark:ring-red-700/25 hover:bg-red-900/50 hover:text-red-400 hover:ring-red-400/50 dark:hover:bg-red-900/50 dark:hover:text-red-400 dark:hover:ring-red-400/50",
+        Servers: "bg-orange-700/25 text-orange-700 ring-orange-700/25 dark:bg-orange-700/25 dark:text-orange-700 dark:ring-orange-700/25 hover:bg-orange-900/50 hover:text-orange-400 hover:ring-orange-400/50 dark:hover:bg-orange-900/50 dark:hover:text-orange-400 dark:hover:ring-orange-400/50",
+        Website: "bg-green-700/25 text-green-700 ring-green-700/25 dark:bg-green-700/25 dark:text-green-700 dark:ring-green-700/25 hover:bg-green-900/50 hover:text-green-400 hover:ring-green-400/50 dark:hover:bg-green-900/50 dark:hover:text-green-400 dark:hover:ring-green-400/50",
+        VPS: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25 hover:bg-black/50 hover:text-black hover:ring-black/50 dark:hover:bg-black/50 dark:hover:text-black dark:hover:ring-black/50",
+        ReactJS: "bg-yellow-700/25 text-yellow-700 ring-yellow-700/25 dark:bg-yellow-700/25 dark:text-yellow-700 dark:ring-yellow-700/25 hover:bg-yellow-500/50 hover:text-yellow-500 hover:ring-yellow-500/50 dark:hover:bg-yellow-500/50 dark:hover:text-yellow-500 dark:hover:ring-yellow-500/50",
 
         success: "bg-green-500/25 text-green-500 ring-green-500/25 dark:bg-green-500/25 dark:text-green-500 dark:ring-green-500/25 hover:bg-green-500/50 hover:text-green-500 hover:ring-green-500/50 dark:hover:bg-green-500/50 dark:hover:text-green-500 dark:hover:ring-green-500/50",
         error: "bg-red-500/25 text-red-500 ring-red-500/25 dark:bg-red-500/25 dark:text-red-500 dark:ring-red-500/25 hover:bg-red-500/50 hover:text-red-500 hover:ring-red-500/50 dark:hover:bg-red-500/50 dark:hover:text-red-500 dark:hover:ring-red-500/50",
@@ -66,7 +74,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: "default",
       size: "default",
-      rounded: "default",
+      rounded: "sm",
     },
   }
 )

@@ -37,7 +37,6 @@ const badgeVariants = cva(
         Markdown: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
         Rust: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
         Null: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
-        // "NextJS", "ShadCn",  "DiscordJS", "NodeJS", "FiveM", "TailwindCSS", "NextUI"
         NextJS: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
         ShadCn: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
         DiscordJS: "bg-blue-700/25 text-blue-700 ring-blue-700/25 dark:bg-blue-700/25 dark:text-blue-700 dark:ring-blue-700/25",
@@ -45,6 +44,15 @@ const badgeVariants = cva(
         FiveM: "bg-orange-700/25 text-orange-700 ring-orange-700/25 dark:bg-orange-700/25 dark:text-orange-700 dark:ring-orange-700/25",
         TailwindCSS: "bg-cyan-700/25 text-cyan-700 ring-cyan-700/25 dark:bg-cyan-700/25 dark:text-cyan-700 dark:ring-cyan-700/25",
         NextUI: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
+        // "Discord", "Hosting",  "ESX", "QBCore", "Servers", "Domains", "VPS", "ReactJS"
+        Discord: "bg-blue-700/25 text-blue-700 ring-blue-700/25 dark:bg-blue-700/25 dark:text-blue-700 dark:ring-blue-700/25",
+        Hosting: "bg-amber-700/25 text-amber-700 ring-amber-700/25 dark:bg-amber-700/25 dark:text-amber-700 dark:ring-amber-700/25",
+        ESX: "bg-yellow-700/25 text-yellow-700 ring-yellow-700/25 dark:bg-yellow-700/25 dark:text-yellow-700 dark:ring-yellow-700/25",
+        QBCore: "bg-red-700/25 text-red-700 ring-red-700/25 dark:bg-red-700/25 dark:text-red-700 dark:ring-red-700/25",
+        Servers: "bg-orange-700/25 text-orange-700 ring-orange-700/25 dark:bg-orange-700/25 dark:text-orange-700 dark:ring-orange-700/25",
+        Domains: "bg-green-700/25 text-green-700 ring-green-700/25 dark:bg-green-700/25 dark:text-green-700 dark:ring-green-700/25",
+        VPS: "bg-black/25 text-white ring-white/25 dark:bg-black/25 dark:text-white dark:ring-white/25",
+        ReactJS: "bg-yellow-700/25 text-yellow-700 ring-yellow-700/25 dark:bg-yellow-700/25 dark:text-yellow-700 dark:ring-yellow-700/25",
 
         // Status
         online: "bg-green-700/25 text-green-700 ring-green-700/25 dark:bg-green-700/25 dark:text-green-700 dark:ring-green-700/25",
