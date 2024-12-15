@@ -11,6 +11,18 @@ export default async function auth(req) {
         page: '/',
         country: req.geo?.country,
       })
+      await analytics.track('pageview', {
+        page: '/contact',
+        country: req.geo?.country,
+      })
+      await analytics.track('pageview', {
+        page: '/projects',
+        country: req.geo?.country,
+      })
+      await analytics.track('pageview', {
+        page: '/partners',
+        country: req.geo?.country,
+      })
       console.log('Tracked pageview for /')
     } catch (err) {
       // fail silently to not affect request
@@ -21,15 +33,5 @@ export default async function auth(req) {
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-    '/',      
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 }

@@ -39,7 +39,10 @@ const redis = RedisClient();
 //! End Of Redis command examples
 
 
-const RoleList = ['admin', 'user']
+const RoleList = [
+    'admin',
+    'user'
+]
 
 // create user in 
 export async function createUser(user: any) {
@@ -52,8 +55,8 @@ export async function createUser(user: any) {
 }
 
 // check if user exists
-export async function userExists(id: string, username: string) {
-    const key = `user::${id}::${username}`
+export async function userExists(id: string) {
+    const key = `user::${id}`
     try {
         return await redis.exists(key)
     } catch (error) {
@@ -139,12 +142,12 @@ export async function getUserByid(id: string) {
 //     "banner": "a_4e83137451cf4fb1fe76acfecaf0012b",
 //     "banner_color": "#040404",
 //     "accent_color": 263172,
-//     "bio": "***`\u003CJoKeR/\u003E - Developer EST 2015`***\n➥ **Portfolio** \u003C:NextJS:1097578602519871498\u003E \n*https://jokerdev.xyz*\n➥ **JK:Development** \u003C:Vip:1233665849605492798\u003E  \n*https://store.jokerdev.xyz*"
+//     "bio": "***`\u003CJoKeR/\u003E - Developer EST 2015`***\n➥ **Portfolio** \u003C:NextJS:1097578602519871498\u003E \n*https://tomdev.xyz*\n➥ **JK:Development** \u003C:Vip:1233665849605492798\u003E  \n*https://store.tomdev.xyz*"
 //   },
 //   "user_profile": {
-//     "bio": "***`\u003CJoKeR/\u003E - Developer EST 2015`***\n➥ **Portfolio** \u003C:NextJS:1097578602519871498\u003E \n*https://jokerdev.xyz*\n➥ **JK:Development** \u003C:Vip:1233665849605492798\u003E  \n*https://store.jokerdev.xyz*",
+//     "bio": "***`\u003CJoKeR/\u003E - Developer EST 2015`***\n➥ **Portfolio** \u003C:NextJS:1097578602519871498\u003E \n*https://tomdev.xyz*\n➥ **JK:Development** \u003C:Vip:1233665849605492798\u003E  \n*https://store.tomdev.xyz*",
 //     "accent_color": 263172,
-//     "pronouns": "jokerdev.xyz",
+//     "pronouns": "tomdev.xyz",
 //     "profile_effect": null,
 //     "banner": "a_4e83137451cf4fb1fe76acfecaf0012b",
 //     "theme_colors": [328965, 4934475],

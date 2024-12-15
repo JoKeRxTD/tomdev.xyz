@@ -156,8 +156,7 @@ interface Posts {
 	id: string;
 	title: string;
 	body: string;
-	createdAt: string;
-	updatedAt: string;
+	createdAt: number;
 	username: string;
 	discordId: string;
 }
