@@ -49,10 +49,10 @@ const buttonVariants = cva(
       },
       size: {
         default: "p-4 h-5 w-20 text-xs",
-        sm: "h-6 w-20 px-6 text-xs",
-        md: "h-8 w-20 px-6 text-sm",
-        lg: "h-10 w-20 px-6 text-md",
-        xlg: "h-16 w-20 px-7 text-lg",
+        sm: "h-6 w-20 p-5 text-xs",
+        md: "h-8 w-24 p-5.5 text-md",
+        lg: "h-10 w-26 p-6 text-lg",
+        xlg: "h-16 w-28 p-6.5 text-2xl",
         icon: "h-9 w-9",
       },
       rounded: {
