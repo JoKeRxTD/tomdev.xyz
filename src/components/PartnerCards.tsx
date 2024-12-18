@@ -78,6 +78,52 @@ const PartnerCards: PartnerCard[] = [
     },
 ]
 
+const BadgeTags: { [key: string]: { variant: string } } = {
+    // add all const Projects: Project[] tags here
+    "NextJS": { variant: "NextJS" },
+    "TailwindCSS": { variant: "TailwindCSS" },
+    "NextUI": { variant: "NextUI" },
+    "LUA": { variant: "Lua" },
+    "FiveM": { variant: "FiveM" },
+    "DiscordJS": { variant: "DiscordJS" },
+    "NodeJS": { variant: "NodeJS" },
+    "Typescript": { variant: "Typescript" },
+    "ShadCn": { variant: "ShadCn" },
+    "HTML": { variant: "HTML" },
+    "CSS": { variant: "CSS" },
+    "Javascript": { variant: "Javascript" },
+    "ReactJS": { variant: "ReactJS" },
+    "VPS": { variant: "VPS" },
+    "Domains": { variant: "Domains" },
+    "Servers": { variant: "Servers" },
+    "QBCore": { variant: "QBCore" },
+    "ESX": { variant: "ESX" },
+    "Hosting": { variant: "Hosting" },
+    "Discord": { variant: "Discord" },
+};
+
+const ButtonStyles: { [key: string]: { variant: string } } = {
+    // add all const Projects: Project[] tags here
+    "Discord": { variant: "Discord" },
+    "Website": { variant: "Website" },
+};
+
+const TagBadge = ({ tags }: { tags: string }) => {
+    return (
+        <Badge variant={BadgeTags[tags]?.variant as any}>
+            {tags}
+        </Badge>
+    );
+};
+
+const buttonStyle = ({ buttons }: { buttons: string }) => {
+    return  (
+        <Button size="default" rounded="md" variant={ButtonStyles[buttons]?.variant as any}>
+            {buttons}
+        </Button>
+    )
+};
+
 export default function PartnerCard() {
     const [show, setShow] = useState(false);
     const [border, setBorder] = useState(false);
@@ -93,52 +139,6 @@ export default function PartnerCard() {
         } else {
             return "border-gray-300";
         }
-    };
-
-    const BadgeTags: { [key: string]: { variant: string } } = {
-        // add all const Projects: Project[] tags here
-        "NextJS": { variant: "NextJS" },
-        "TailwindCSS": { variant: "TailwindCSS" },
-        "NextUI": { variant: "NextUI" },
-        "LUA": { variant: "Lua" },
-        "FiveM": { variant: "FiveM" },
-        "DiscordJS": { variant: "DiscordJS" },
-        "NodeJS": { variant: "NodeJS" },
-        "Typescript": { variant: "Typescript" },
-        "ShadCn": { variant: "ShadCn" },
-        "HTML": { variant: "HTML" },
-        "CSS": { variant: "CSS" },
-        "Javascript": { variant: "Javascript" },
-        "ReactJS": { variant: "ReactJS" },
-        "VPS": { variant: "VPS" },
-        "Domains": { variant: "Domains" },
-        "Servers": { variant: "Servers" },
-        "QBCore": { variant: "QBCore" },
-        "ESX": { variant: "ESX" },
-        "Hosting": { variant: "Hosting" },
-        "Discord": { variant: "Discord" },
-    };
-    
-    const ButtonStyles: { [key: string]: { variant: string } } = {
-        // add all const Projects: Project[] tags here
-        "Discord": { variant: "Discord" },
-        "Website": { variant: "Website" },
-    };
-    
-    const TagBadge = ({ tags }: { tags: string }) => {
-        return (
-            <Badge variant={BadgeTags[tags]?.variant as any}>
-                {tags}
-            </Badge>
-        );
-    };
-    
-    const buttonStyle = ({ buttons }: { buttons: string }) => {
-        return  (
-            <Button size="default" rounded="md" variant={ButtonStyles[buttons]?.variant as any}>
-                {buttons}
-            </Button>
-        )
     };
 
     return (

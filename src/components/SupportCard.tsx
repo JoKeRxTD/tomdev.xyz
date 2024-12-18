@@ -3,7 +3,7 @@ import { Code } from "@nextui-org/react";
 import { Link } from "@nextui-org/link";
 import { SiDiscord, SiEgghead } from "react-icons/si";
 import { Tooltip } from "@nextui-org/react";
-import {PartnerIcon} from "../components/Icons";
+import {PartnerIcon} from "@/src/components/Icons";
 
 
 export default function SupportCard() {
