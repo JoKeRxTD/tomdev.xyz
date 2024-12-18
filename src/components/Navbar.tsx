@@ -46,14 +46,14 @@ export default function Navbar() {
 	const userData = session?.user;
 	
 	const navDropdown = [
-		{ label: "Profile", href: `/user/${userData?.discordId}` },
+		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
 		{ label: "Analytics", href: "/analytics" },
 		{ label: "Partners", href: "/partners" },
 		{ label: "Guestbook", href: "/guestbook" },
 	];
 
 	const userDropdown = [
-		{ label: "Profile", href: `/user/${userData?.discordId}` },
+		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
 		// { label: "Settings", href: "/settings" },
 	];
 
@@ -80,7 +80,7 @@ export default function Navbar() {
 	const UserBar = () => {
 		// convert userDrown label to lowercase for icon matching
 		const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
-		if (session) {
+		if (userData) {
 			return (
 				<div className="flex gap-2 items-center justify-center">
 					<DropdownMenu>
@@ -150,14 +150,14 @@ export default function Navbar() {
 					<DropdownMenu>
 						<NavbarItem className="hidden lg:flex">
 							<DropdownMenuTrigger asChild>
-								<span className="flex gap-2 items-center content-center">
+								<span className="flex gap-2 items-center content-center text-zinc-800 dark:text-zinc-400">
 									Other {icons.dropdown}
 								</span>
 							</DropdownMenuTrigger>
 						</NavbarItem>
 						<DropdownMenuContent
 							aria-label="Other Options"
-							className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+							className="text-bold object-top text-base ring-1 ring-inset bg-zinc-900/90 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-600/85 dark:text-zinc-400 dark:ring-zinc-400/25 "
 						>
 							<DropdownMenuSeparator />
 							{navDropdown.map((item, index) => (
