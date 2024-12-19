@@ -86,7 +86,7 @@ export default async function MeProfilePage({ params }: { params: { id: string }
   // }
 
   // let flags: string[] = DiscordBadges(user.public_flags);
-  if (user.avatar && user.avatar.includes("a_")) flags.push("Nitro");
+  // if (user.avatar && user.avatar.includes("a_")) flags.push("Nitro");
 
   let userBanner = user.banner;
   if (userBanner?.includes("a_")) userBanner = `https://cdn.discordapp.com/banners/${user.discordId}/${userBanner}.gif?size=512` || `https://cdn.discordapp.com/banners/${user.discordId}/${userBanner}.png?size=512`;
