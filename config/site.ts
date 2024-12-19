@@ -84,10 +84,10 @@ export const siteConfig = {
 			label: "Analytics",
 			href: "/analytics",
 		},
-		{
-			label: "Dashboard",
-			href: "/user-profile",
-		},
+		// {
+		// 	label: "Dashboard",
+		// 	href: "/user-profile",
+		// },
 	],
 	sideBarItems: [
 	// 	label: string;

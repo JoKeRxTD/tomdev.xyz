@@ -121,7 +121,7 @@ export default async function MeProfilePage({ params }: { params: { id: string }
         <CardHeader className="flex flex-col items-center justify-center gap-2 mt-4">
           <CardTitle className="flex flex-row items-center justify-center">{user.username}</CardTitle>
           <CardDescription className="flex flex-row items-center justify-center">
-          <Code className="flex flex-row gap-2 justify-end z-11 ring-1 ring-inset ring-zinc-400/25 dark:ring-zinc-400/25">
+          {/* <Code className="flex flex-row gap-2 justify-end z-11 ring-1 ring-inset ring-zinc-400/25 dark:ring-zinc-400/25">
             {DiscordBadges(user.public_flags).map((v) => (
               <Tooltip
                 key={v}
@@ -132,7 +132,7 @@ export default async function MeProfilePage({ params }: { params: { id: string }
                 <Image src={`/badges/${v}.png`} alt={v} width={24} height={24} />
               </Tooltip>
             ))}
-          </Code>
+          </Code> */}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center gap-4">
