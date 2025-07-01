@@ -2,7 +2,7 @@ import "@/src/styles/globals.css";
 import { Metadata } from "next";
 import { siteConfig } from "../../config/site";
 // import { fontSans } from "@/config/fonts";
-import Navbar from "@/src/components/Navbar";
+
 import Footer from "@/src/components/Footer";
 import clsx from "clsx";
 import type { Viewport } from 'next';
@@ -13,7 +13,59 @@ import { Inter } from "next/font/google"
 import { SessionProvider } from "next-auth/react"
 import { Toaster, toast } from 'sonner'
 import { ThemeProvider } from "@/src/app/providers";
+import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import {Navbar1} from "@/src/components/navbar1";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/src/components/ui/accordion";
+import { Button } from "@/src/components/ui/button";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/src/components/ui/navigation-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/src/components/ui/sheet";
+
+interface MenuItem {
+  title: string;
+  url: string;
+  description?: string;
+  icon?: React.ReactNode;
+  items?: MenuItem[];
+}
+
+interface Navbar1Props {
+  logo?: {
+    url: string;
+    src: string;
+    alt: string;
+    title: string;
+  };
+  menu?: MenuItem[];
+  auth?: {
+    login: {
+      title: string;
+      url: string;
+    };
+    signup: {
+      title: string;
+      url: string;
+    };
+  };
+}
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -83,9 +135,28 @@ export default function RootLayout({ children }: RootLayoutProps, session: any) 
 					fontSans.variable
 				)}>
 					<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-						<main className="relative flex flex-col h-screen items-center">
-							<Navbar />
-								<div className="container mx-auto max-w-5xl flex-grow">
+						<main className="relative flex flex-col items-center h-screen">
+							<header className="z-50 w-full">
+								<Navbar1
+									logo={{
+										url: "/",
+										src: "/joker_new.png",
+										alt: "TomDev Logo",
+										title: "TomDev"
+									}}
+									menu={[
+										{ title: "Home", url: "/"},
+										{ title: "Blog", url: "/blog"},
+										{ title: "About", url: "/about"}
+									]}
+									auth={{
+										login: { title: "Login", url: "/login" },
+										signup: { title: "Sign Up", url: "/signup" }
+									}}
+								/>
+								{/* <Navbar /> */}
+							</header>
+								<div className="container flex-grow max-w-5xl mx-auto">
 									{children}
 									<Toaster />
 								</div>
@@ -100,7 +171,7 @@ export default function RootLayout({ children }: RootLayoutProps, session: any) 
 
 {/* 
 <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-	<div className="inline-block text-center justify-center">
+	<div className="justify-center inline-block text-center">
 		{children}
 	</div>
 </section> */}

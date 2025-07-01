@@ -86,13 +86,13 @@ const LanyardCard = () => {
             transition={{ duration: 0.5, delay: 0.5, easing: [0, 0.5, 0.28, 0.99] }}
             className="hidden lg:flex lg:flex-row lg:grow lg:fixed lg:bottom-[100px] rounded-md lg:right-7 lg:w-[390px] lg:h-[200px] ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
         >
-            <div className="flex flex-col grow justify-center mx-2 mt-3 p-1/2 text-2/xl">
-                <div className="flex flex-row justify-center items-center">
+            <div className="flex flex-col justify-center mx-2 mt-3 grow p-1/2 text-2/xl">
+                <div className="flex flex-row items-center justify-center">
                     <Tooltip
                         key={activity?.discord_user?.username}
                         content={activity?.discord_user?.username}
                         color='default'
-                        className='z-11 rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'
+                        className='rounded-md z-11 ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'
                     >
                         <Image
                             src={`https://cdn.discordapp.com/avatars/${activity?.discord_user?.id}/${activity?.discord_user?.avatar}.gif`}
@@ -103,23 +103,24 @@ const LanyardCard = () => {
                             width={50}
                         />
                     </Tooltip>
-                    <div className="flex flex-col ml-2 justify-center text-center gap-1">
-                        <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{activity?.discord_user?.global_name}</p>
+                    <div className="flex flex-col justify-center gap-1 ml-2 text-center">
+                        <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{activity?.discord_user?.global_name}</p>
                         <UserStatusBadge status={activity?.discord_status} />
                     </div>
                     <div className="flex flex-col ml-2 mt-1 w-[180px]">
-                        <div className='text-center items-center justify-center rounded-md ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'>
-                            <p className='text-gray-800 dark:text-gray-100 text-md p-2'>
+                        <div className='items-center justify-center text-center rounded-md ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'>
+                            <p className='p-2 text-gray-800 dark:text-gray-100 text-md'>
                                 {flags.map(v => (
                                     <Tooltip
                                         key={v}
                                         content={v.split("_").join(" ")}
                                         color='default'
-                                        className='z-11 rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'
+                                        className='rounded-md z-11 ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400'
                                     >
                                         <img
                                             src={`data:image/png;base64,${Badges[v]}`}
-                                            className='w-5 h-5 inline-block mx-1'
+                                            alt={`${v.split("_").join(" ")} badge`}
+                                            className='inline-block w-5 h-5 mx-1'
                                         />
                                     </Tooltip>
                                 ))}
@@ -128,9 +129,9 @@ const LanyardCard = () => {
                     </div>
                 </div>
                 <div className="flex flex-col justify-center mx-2 p-1 text-lg w-[355px] h-[510px]">
-                    <div className="flex flex-col px-1 mb-1 gap-2 rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400">
+                    <div className="flex flex-col gap-2 px-1 mb-1 rounded-md ring-1 ring-inset text-zinc-800 ring-zinc-400/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400">
                         {notSpotify?.length > 0 ? (
-                            <div className='flex flex-row mt-1 mb-1 gap-1 justify-center items-center'>
+                            <div className='flex flex-row items-center justify-center gap-1 mt-1 mb-1'>
                                 <Tooltip
                                     key={notSpotify[0]?.name}
                                     content={notSpotify[0]?.name}
@@ -143,47 +144,47 @@ const LanyardCard = () => {
                                                 src={`https://cdn.discordapp.com/emojis/${CustomStatus[0]?.emoji?.id}.png`}
                                                 alt="Discord Avatar"
                                                 fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
-                                                className="rounded-full w-8 h-8 mr-2"
+                                                className="w-8 h-8 mr-2 rounded-full"
                                             />
                                         ) : CallOfDuty?.length > 0 ? (
                                             <Image
                                                 src={`https://cdn.discordapp.com/app-assets/${CallOfDuty[0]?.application_id}/${CallOfDuty[0]?.assets?.large_image}.png`}
                                                 alt="Discord Avatar"
                                                 fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
-                                                className=" rounded-lg w-12 h-12 mr-6 ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+                                                className="w-12 h-12 mr-6 rounded-lg  ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
                                             />
                                         ) : (
                                             <Image
                                                 src={`https://media.discordapp.net/external/${notSpotify[0]?.assets?.large_image.replace("mp:external/", "")}`}
                                                 alt="Discord Avatar"
                                                 fallbackSrc="https://cdn.tomdev.xyz/img/dev_emsam8ty.jpg"
-                                                className="rounded-lg w-12 h-12 ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+                                                className="w-12 h-12 rounded-lg ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
                                             />
                                         )}
                                     </div>
                                 </Tooltip>
                                 {CustomStatus?.length > 0 ? (
-                                    <div className='flex justify-center text-center items-center'>
-                                        {/* <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{CustomStatus[0]?.name}</p> */}
-                                        <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{CustomStatus[0]?.state}</p>
+                                    <div className='flex items-center justify-center text-center'>
+                                        {/* <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{CustomStatus[0]?.name}</p> */}
+                                        <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{CustomStatus[0]?.state}</p>
                                     </div>
                                 ) : CallOfDuty?.length > 0 ? (
-                                    <div className='flex flex-col justify-center text-center items-center'>
-                                        <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{CallOfDuty[0]?.name}</p>
-                                        <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{CallOfDuty[0]?.state}</p>
-                                        <p className='text-zinc-600 dark:text-white font-semibold text-sm'>{CallOfDuty[0]?.details}</p>
+                                    <div className='flex flex-col items-center justify-center text-center'>
+                                        <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{CallOfDuty[0]?.name}</p>
+                                        <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{CallOfDuty[0]?.state}</p>
+                                        <p className='text-sm font-semibold text-zinc-600 dark:text-white'>{CallOfDuty[0]?.details}</p>
                                     </div>
                                 ) : (
-                                    <div className='flex flex-col justify-center text-center items-center'>
-                                        <p className='text-zinc-600 dark:text-white font-bold text-md'>{notSpotify[0]?.name}</p>
+                                    <div className='flex flex-col items-center justify-center text-center'>
+                                        <p className='font-bold text-zinc-600 dark:text-white text-md'>{notSpotify[0]?.name}</p>
                                         <p className='text-zinc-600 dark:text-white text-[12px]'>{notSpotify[0]?.details}</p>
                                         <p className='text-zinc-600 dark:text-white text-[12px]'>{notSpotify[0]?.state}</p>
                                     </div>
                                 )}
                             </div>
                         ) : (
-                            <div className="flex flex-col justify-center items-center pt-8 pb-8 p-1">
-                                <p className="text-zinc-600 dark:text-white font-semibold text-lg">Not doing anything right now.</p>
+                            <div className="flex flex-col items-center justify-center p-1 pt-8 pb-8">
+                                <p className="text-lg font-semibold text-zinc-600 dark:text-white">Not doing anything right now.</p>
                             </div>
                         )}
                     </div>

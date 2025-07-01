@@ -45,30 +45,7 @@ export default function Navbar() {
 
 	const userData = session?.user;
 	
-	const navDropdown = [
-		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
-		{ label: "Analytics", href: "/analytics" },
-		{ label: "Partners", href: "/partners" },
-		{ label: "Guestbook", href: "/guestbook" },
-	];
-
-	const userDropdown = [
-		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
-		// { label: "Settings", href: "/settings" },
-	];
-
-
-
-	const icons = {
-		profile: <ProfileIcon className="text-primary" fill="currentColor" size={18} />,
-		analytics: <AnalyticsIcon className="text-warning" fill="currentColor" size={18} />,
-		dropdown: <LinesIcon className="text-primary" fill="currentColor" size={18} />,
-		github: <GithubIcon className="text-slate-800 dark:text-white" fill="currentColor" size={18} />,
-		discord: <DiscordIcon className="text-[#7289da]" fill="currentColor" size={18} />,
-		egghead: <SiEgghead className="text-primary" fill="currentColor" size={18} />,
-		partners: <PartnerIcon className="text-primary text-bold" fill="currentColor" size={18} />,
-		guestbook: <BookIcon className="text-orange-800 dark:text-orange-400 text-bold" fill="currentColor" size={18} />,
-	};
+	// (removed duplicate declarations)
 	
 	let userBanner = userData?.banner;
   if (userBanner?.includes("a_")) userBanner = `https://cdn.discordapp.com/banners/${userData?.discordId}/${userBanner}.gif?size=512` || `https://cdn.discordapp.com/banners/${userData?.discordId}/${userBanner}.png?size=512`;
@@ -82,7 +59,7 @@ export default function Navbar() {
 		const userDropdownLabels = userDropdown.map((item) => item.label.toLowerCase());
 		if (userData) {
 			return (
-				<div className="flex gap-2 items-center justify-center">
+				<div className="flex items-center justify-center gap-2">
 					<DropdownMenu>
 						<DropdownMenuTrigger asChild>
 							<Avatar>
@@ -92,13 +69,13 @@ export default function Navbar() {
 						</DropdownMenuTrigger>
 						<DropdownMenuContent
 							aria-label="User Options"
-							className="text-bold text-base ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25  dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
+							className="text-base text-bold ring-1 ring-inset bg-zinc-900/25 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-900/25 dark:text-zinc-400 dark:ring-zinc-400/25 hover:text-zinc-400 dark:hover:text-zinc-400"
 						>
 							<DropdownMenuSeparator />
 							{userDropdown.map((item, index) => (
 								<DropdownMenuItem
 									key={`${item.label}-${index}`}
-									className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
+									className="items-center justify-center text-center cursor-pointer text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25"
 									onClick={() => {
 										window.location.href = item.href;
 									}
@@ -121,17 +98,45 @@ export default function Navbar() {
 	
 
 
-	const navDropdownLabels = navDropdown.map((item) => item.label.toLowerCase());
+	interface DropdownItem {
+		label: string;
+		href: string;
+	}
+
+	const navDropdown: DropdownItem[] = [
+		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
+		{ label: "Analytics", href: "/analytics" },
+		{ label: "Partners", href: "/partners" },
+		{ label: "Guestbook", href: "/guestbook" },
+	];
+
+	const userDropdown: DropdownItem[] = [
+		{ label: "Profile", href: userData?.discordId ? `/user/${userData.discordId}` : '/error' },
+		// { label: "Settings", href: "/settings" },
+	];
+
+	const icons: Record<string, React.ReactNode> = {
+		profile: <ProfileIcon className="text-primary" fill="currentColor" size={18} />,
+		analytics: <AnalyticsIcon className="text-warning" fill="currentColor" size={18} />,
+		dropdown: <LinesIcon className="text-primary" fill="currentColor" size={18} />,
+		github: <GithubIcon className="text-slate-800 dark:text-white" fill="currentColor" size={18} />,
+		discord: <DiscordIcon className="text-[#7289da]" fill="currentColor" size={18} />,
+		egghead: <SiEgghead className="text-primary" fill="currentColor" size={18} />,
+		partners: <PartnerIcon className="text-primary text-bold" fill="currentColor" size={18} />,
+		guestbook: <BookIcon className="text-orange-800 dark:text-orange-400 text-bold" fill="currentColor" size={18} />,
+	};
+
+	const navDropdownLabels: string[] = navDropdown.map((item: DropdownItem) => item.label.toLowerCase());
 	return (
-		<NextUINavbar maxWidth="lg" position="sticky" className="z-50 gap-2 border-t border-zinc-800 dark:border-zinc-800/30 text-zinc-200 dark:text-zinc-800 bg-transparent dark:bg-zinc-900/25">
-			<NavbarContent className="basis-1/5 sm:basis-full ml-2 gap-4 justify-center items-center text-bold text-base">
+		<NextUINavbar maxWidth="lg" position="sticky" className="z-50 gap-2 bg-transparent border-t border-zinc-800 dark:border-zinc-800/30 text-zinc-200 dark:text-zinc-800 dark:bg-zinc-900/25">
+			<NavbarContent className="items-center justify-center gap-4 ml-2 text-base basis-1/5 sm:basis-full text-bold">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
-					<Link className="flex justify-start items-center gap-1" href="/">
+					<Link className="flex items-center justify-start gap-1" href="/">
 						<h1 className="text-2xl font-bold text-primary-300">JoKeR</h1>
 					</Link>
 				</NavbarBrand>
-				<div className="hidden lg:flex gap-4 justify-start ml-2 text-bold text-xl">
-					{siteConfig.navItems.map((item) => (
+				<div className="justify-start hidden gap-4 ml-2 text-xl lg:flex text-bold">
+					{siteConfig.navItems.map((item: { label: string; href: string }) => (
 						<NavbarItem key={item.href}>
 							<Link
 								className={clsx(
@@ -146,24 +151,24 @@ export default function Navbar() {
 						</NavbarItem>
 					))}
 				</div>
-				<div className="hidden lg:flex gap-4 text-bold text-xl">
+				<div className="hidden gap-4 text-xl lg:flex text-bold">
 					<DropdownMenu>
 						<NavbarItem className="hidden lg:flex">
 							<DropdownMenuTrigger asChild>
-								<span className="flex gap-2 items-center content-center text-zinc-800 dark:text-zinc-400">
+								<span className="flex items-center content-center gap-2 text-zinc-800 dark:text-zinc-400">
 									Other {icons.dropdown}
 								</span>
 							</DropdownMenuTrigger>
 						</NavbarItem>
 						<DropdownMenuContent
 							aria-label="Other Options"
-							className="text-bold object-top text-base ring-1 ring-inset bg-zinc-900/90 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-600/85 dark:text-zinc-400 dark:ring-zinc-400/25 "
+							className="object-top text-base text-bold ring-1 ring-inset bg-zinc-900/90 text-zinc-800 ring-zinc-400/25 dark:bg-zinc-600/85 dark:text-zinc-400 dark:ring-zinc-400/25 "
 						>
 							<DropdownMenuSeparator />
-							{navDropdown.map((item, index) => (
+							{navDropdown.map((item: DropdownItem, index: number) => (
 								<DropdownMenuItem
 									key={`${item.label}-${index}`}
-									className="text-center justify-center items-center text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25 cursor-pointer"
+									className="items-center justify-center text-center cursor-pointer text-bold hover:bg-zinc-700/25 dark:hover:bg-zinc-700/25"
 									onClick={() => {
 										window.location.href = item.href;
 									}
@@ -179,7 +184,7 @@ export default function Navbar() {
 			<NavbarContent
 				className="hidden sm:flex basis-1/5 sm:basis-full"
 				justify="end">
-				<NavbarItem className="hidden sm:flex justify-center gap-2">
+				<NavbarItem className="justify-center hidden gap-2 sm:flex">
 					<Skeleton className="hidden sm:flex" isLoaded={false} />
 					<DiscordWidgetApp/>
 					<Link isExternal href={siteConfig.links.github} aria-label="Github">
@@ -190,7 +195,7 @@ export default function Navbar() {
 				</NavbarItem>
 			</NavbarContent>
 
-			<NavbarContent className="sm:hidden basis-2 pl-2 justify-center" justify="end">
+			<NavbarContent className="justify-center pl-2 sm:hidden basis-2" justify="end">
 				<Skeleton className="hidden sm:flex" isLoaded={false} />
 				<Link isExternal href={siteConfig.links.discord} aria-label="Discord">
 					{icons.discord}
@@ -204,11 +209,11 @@ export default function Navbar() {
 			</NavbarContent>
 
 			<NavbarMenu>
-				<code className="text-center p-4 font-bold text-primary-200">Main Menu</code>
+				<code className="p-4 font-bold text-center text-primary-200">Main Menu</code>
 				<Divider />
-				<div className="mx-6 mt-4 flex flex-col gap-2">
-					{siteConfig.navMenuItems.map((item, index) => (
-						<NavbarMenuItem key={`${item}-${index}`} className="text-center justify-center">
+				<div className="flex flex-col gap-2 mx-6 mt-4">
+					{siteConfig.navMenuItems.map((item: { label: string; href: string }, index: number) => (
+						<NavbarMenuItem key={`${item}-${index}`} className="justify-center text-center">
 							<Link
 								color="foreground"
 								href={item.href}
