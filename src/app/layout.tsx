@@ -137,23 +137,7 @@ export default function RootLayout({ children }: RootLayoutProps, session: any) 
 					<ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
 						<main className="relative flex flex-col items-center h-screen">
 							<header className="z-50 w-full">
-								<Navbar1
-									logo={{
-										url: "/",
-										src: "/joker_new.png",
-										alt: "TomDev Logo",
-										title: "TomDev"
-									}}
-									menu={[
-										{ title: "Home", url: "/"},
-										{ title: "Blog", url: "/blog"},
-										{ title: "About", url: "/about"}
-									]}
-									auth={{
-										login: { title: "Login", url: "/login" },
-										signup: { title: "Sign Up", url: "/signup" }
-									}}
-								/>
+								<Navbar1 />
 								{/* <Navbar /> */}
 							</header>
 								<div className="container flex-grow max-w-5xl mx-auto">

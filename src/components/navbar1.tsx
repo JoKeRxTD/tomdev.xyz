@@ -25,6 +25,9 @@ import {
 import { siteConfig } from "@/config/site";
 import React from "react";
 import Image from "next/image";
+import { SignIn, SignOut } from "@/src/components/SignInOut";
+import { Link } from "@nextui-org/link";
+
 
 // Dummy user/session logic for illustration
 type Session = { user?: any } | null;
@@ -149,13 +152,8 @@ const Navbar1 = () => {
           <div className="flex items-center gap-2">
             <ThemeSwitch />
             <UserBar />
-            <Button
-              asChild
-              size="sm"
-              className="px-4 py-2 font-bold text-white rounded-full bg-primary hover:bg-primary/90"
-            >
-              <a href="#">Sign up</a>
-            </Button>
+            <SignOut />
+            <SignIn />
           </div>
         </nav>
 
@@ -163,8 +161,8 @@ const Navbar1 = () => {
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2">
-              <img src={siteConfig.logo} className="max-h-8" alt="logo" />
+            <a href="/" className="flex items-center gap-2" title={siteConfig.name}>
+              <Image src={siteConfig.logo} className="max-h-8" alt="logo" width={32} height={32} />
             </a>
             <Sheet>
               <SheetTrigger asChild>
@@ -175,8 +173,8 @@ const Navbar1 = () => {
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href="/" className="flex items-center gap-2">
-                      <img src={siteConfig.logo} className="max-h-8" alt="logo" />
+                    <a href="/" className="flex items-center gap-2" title={siteConfig.name}>
+                      <Image src={siteConfig.logo} className="max-h-8" alt="logo" width={32} height={32} />
                     </a>
                   </SheetTitle>
                 </SheetHeader>
@@ -190,13 +188,8 @@ const Navbar1 = () => {
                   </Accordion>
                   <div className="flex flex-col gap-3">
                     <UserBar />
-                    <Button
-                      asChild
-                      size="sm"
-                      className="px-4 py-2 font-bold text-white rounded-full bg-primary hover:bg-primary/90"
-                    >
-                      <a href="#">Sign up</a>
-                    </Button>
+                    <SignOut />
+                    <SignIn />;
                   </div>
                 </div>
               </SheetContent>
