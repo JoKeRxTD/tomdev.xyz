@@ -1,6 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { Code } from "@nextui-org/react";
+import { Button } from '@nextui-org/react';
 
 export default function Error({
   error,
@@ -15,10 +16,10 @@ export default function Error({
   }, [error])
 
   return (
-    <section className="flex flex-col text-center gap-4 p-6 items-center justify-center rounded-xl border py-12 md:space-y-8 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
+    <section className="flex flex-col items-center justify-center gap-4 p-6 py-12 text-center border border-gray-300 rounded-xl md:space-y-8 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
       <div >
       <Code color="danger" size="lg" className='mb-4'>404 Error</Code>
-        <p className="text-2xmd text-center text-gray-800 dark:text-gray-100 mb-6">
+        <p className="mb-6 text-center text-gray-800 text-2xmd dark:text-gray-100">
         Oops, Looks like you have entered a void, Lets get you back to the light.
         </p>
         <h2 className="text-center text-gray-800 dark:text-gray-100">
@@ -27,13 +28,14 @@ export default function Error({
       </div>
 
       <div className="flex gap-3">
-        <button
+        <Button
+          type="button"
           onClick={reset}
-          className="flex flex-col items-center justify-center text-center border rounded-xl p-2 space-y-2 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
+          className="flex flex-col items-center justify-center p-2 space-y-2 text-center border border-gray-300 rounded-xl bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
           title="nextui.org homepage"
         >
           <span className="text-default-600">Return to the light</span>
-        </button>
+        </Button>
 
       </div>
     </section>

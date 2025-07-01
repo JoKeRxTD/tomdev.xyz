@@ -1,3 +1,4 @@
+'use client';
 import { Menu } from "lucide-react";
 import { ThemeSwitch } from "@/src/components/theme-switch";
 import {
@@ -151,9 +152,7 @@ const Navbar1 = () => {
           </div>
           <div className="flex items-center gap-2">
             <ThemeSwitch />
-            <UserBar />
-            <SignOut />
-            <SignIn />
+            {userData ? <SignOut /> : <SignIn />}
           </div>
         </nav>
 

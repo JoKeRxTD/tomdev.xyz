@@ -4,6 +4,7 @@ import { Code } from "@nextui-org/react";
 import { ScrollShadow } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 export default function Error({
   error,
@@ -31,32 +32,32 @@ export default function Error({
         transition={{ ease: "easeOut", duration: 0.15 }}
         className="w-full h-full"
       >
-          <Card className=" text-center justify-center items-center flex flex-col border rounded-xl border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
-            <CardHeader className="flex flex-col text-center justify-center items-center text-2xl text-primary-300 font-bold">
-              <div className="text-center pb-2">
-                <a className="text-5xl font-extrabold text-center items-center justify-center text-blue-500 dark:text-blue-800">
+          <Card className="flex flex-col items-center justify-center text-center border border-gray-300  rounded-xl bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30">
+            <CardHeader className="flex flex-col items-center justify-center text-2xl font-bold text-center text-primary-300">
+              <div className="pb-2 text-center">
+                <a className="items-center justify-center text-5xl font-extrabold text-center text-blue-500 dark:text-blue-800">
                   Error
                 </a>
               </div>
               <Code
                 size="lg"
                 color="danger"
-                className="text-center font-bold text-zinc-800 dark:text-pink-600"
+                className="font-bold text-center text-zinc-800 dark:text-pink-600"
               >
                 500 Internal Server Error
               </Code>
             </CardHeader>
-            <CardBody className="flex flex-wrap items-center justify-between space-y-3 pb-1 text-center">
+            <CardBody className="flex flex-wrap items-center justify-between pb-1 space-y-3 text-center">
             <div className="pb-2 text-center">
               <p className="pb-2 text-center">
-                <div className="rounded-md bg-red-900/25 p-2 text-center text-lg font-bold text-red-800 ring-1 ring-inset ring-red-400/25 dark:bg-red-900/25 dark:text-red-400 dark:ring-red-400/25">
+                <div className="p-2 text-lg font-bold text-center text-red-800 rounded-md bg-red-900/25 ring-1 ring-inset ring-red-400/25 dark:bg-red-900/25 dark:text-red-400 dark:ring-red-400/25">
                   {error.message}
                 </div>
               </p>
               <p className="p-4 text-center">
                 If you think this is a mistake, please contact me{" "}
                 <a
-                  className="cursor-pointer rounded-md bg-blue-900/25 p-1 text-center font-bold text-blue-800 ring-1 ring-inset ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25"
+                  className="p-1 font-bold text-center text-blue-800 rounded-md cursor-pointer bg-blue-900/25 ring-1 ring-inset ring-blue-400/25 dark:bg-blue-900/25 dark:text-blue-400 dark:ring-blue-400/25"
                   onClick={() =>
                     window.open("mailto:contact@tomdev.xyz", "_blank")
                   }
@@ -66,21 +67,15 @@ export default function Error({
               </p>
             </div>
           </CardBody>
-            <CardFooter className="flex flex-row items-center text-center justify-center gap-2">
-              <button
-                className="text-base border rounded-xl p-2 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
-                color="default"
-                onClick={reset}
-              >
-                Try Again
-              </button>
-              <button
-                className="text-base border rounded-xl p-2 border-gray-300 bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
-                color="default"
-                onClick={() => window.location.replace("/")}
-              >
-                Go Home
-              </button>
+            <CardFooter className="flex flex-row items-center justify-center gap-2 text-center">
+              <Button
+          type="button"
+          onClick={reset}
+          className="flex flex-col items-center justify-center p-2 space-y-2 text-center border border-gray-300 rounded-xl bg-gradient-to-b from-zinc-200 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:rounded-xl lg:border lg:bg-gray-200 lg:dark:bg-zinc-800/30"
+          title="nextui.org homepage"
+        >
+          <span className="text-default-600">Return to the light</span>
+        </Button>
             </CardFooter>
           </Card>
       </motion.div>
